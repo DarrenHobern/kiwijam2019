@@ -59,7 +59,7 @@ public class PlayerMovement : MonoBehaviour
         Debug.Log("Picked up " + item.name);
         heldItem = item;
         item.EnterHeldState();
-        heldItem.transform.position = holdTransform.position;
+        heldItem.transform.localPosition = holdTransform.localPosition;
         heldItem.transform.SetParent(holdTransform, false);
 
     }

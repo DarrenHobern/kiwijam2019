@@ -9,11 +9,11 @@ public class Item : MonoBehaviour
 
     private Rigidbody rb;
     public Rigidbody Rb { get { return this.rb; }}
-    private Collider col;
+    private Collider[] cols;
 
     private void Awake() {
         this.rb = GetComponent<Rigidbody>();
-        this.col = GetComponent<Collider>();
+        this.cols = GetComponentsInChildren<Collider>();
     }
 
     public void EnterHeldState() {
@@ -21,7 +21,9 @@ public class Item : MonoBehaviour
             return;
         }
         held = true;
-        col.enabled = false;
+        foreach(Collider c in cols) {
+            c.enabled = false;
+        }
         rb.useGravity = false;
     }
 
@@ -30,7 +32,9 @@ public class Item : MonoBehaviour
             return;
         }
         held = false;
-        col.enabled = true;
+        foreach(Collider c in cols) {
+            c.enabled = true;
+        }
         rb.useGravity = true;
     }
 }
