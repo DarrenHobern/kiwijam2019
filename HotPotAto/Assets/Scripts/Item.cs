@@ -9,8 +9,6 @@ public class Item : Holdable
     private SpriteRenderer spriteRenderer;
 
     private void Awake() {
-        this.rb = GetComponent<Rigidbody>();
-        this.colliders = GetComponentsInChildren<Collider>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         if (ingredient != null) {
             spriteRenderer.sprite = ingredient.S;
