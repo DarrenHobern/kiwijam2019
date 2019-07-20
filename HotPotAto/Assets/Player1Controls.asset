@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   horizontal: h1
   vertical: v1
-  throwAction: Fire1
-  pickupAction: Jump
+  throwAction: t1
+  pickupAction: p1
