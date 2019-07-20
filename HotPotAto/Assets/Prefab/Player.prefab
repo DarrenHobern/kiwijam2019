@@ -80,6 +80,7 @@ MonoBehaviour:
   moveSpeed: 0.2
   health: 100
   holdTransform: {fileID: 2342144744586815897}
+  throwForce: {x: 1, y: 1, z: 0}
 --- !u!1 &3987829743974687277
 GameObject:
   m_ObjectHideFlags: 0

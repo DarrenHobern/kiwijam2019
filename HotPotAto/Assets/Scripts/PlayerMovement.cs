@@ -9,7 +9,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private int health = 100;
     [SerializeField] private Transform holdTransform;
     private Item heldItem = null;
-    
+
+    [SerializeField] private Vector3 throwForce;
+   
     private void Awake() {
         if (this.holdTransform == null) {
             Debug.LogError("HoldTransform not set");
@@ -54,8 +56,24 @@ public class PlayerMovement : MonoBehaviour
         heldItem = item;
         item.EnterHeldState();
         heldItem.transform.position = holdTransform.position;
-        heldItem.transform.parent = holdTransform;
+        heldItem.transform.SetParent(holdTransform, false);
 
+    }
+
+    private void ThrowItem() {
+        if (heldItem == null) {
+            return;
+        }
+
+        // Check if held item is the pot
+        if (heldItem.CompareTag("Pot")) {
+            // Throwing the pot will always land on the other player
+        } else {
+            // Throw the ingredient in front of you
+            heldItem.ExitHeldState();
+            heldItem.transform.parent = null;
+            heldItem.Rb.AddForce(throwForce, ForceMode.Impulse);
+        }
     }
 
 }

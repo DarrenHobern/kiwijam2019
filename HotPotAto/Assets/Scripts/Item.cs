@@ -8,6 +8,7 @@ public class Item : MonoBehaviour
     private bool held = false;
 
     private Rigidbody rb;
+    public Rigidbody Rb { get { return this.rb; }}
     private Collider col;
 
     private void Awake() {
