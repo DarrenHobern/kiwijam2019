@@ -116,7 +116,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void AnimationUpdate() {
         if (heldItem != null) {
-            if (heldItem.CompareTag("Pot")) {
+            if (heldItem is Crockpot) {
                 anim.SetBool("HoldingPot", true);
             }
             anim.SetBool("HoldingItem", true);

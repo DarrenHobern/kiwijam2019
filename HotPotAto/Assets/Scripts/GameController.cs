@@ -6,6 +6,7 @@ public class GameController : MonoBehaviour
 {
     public static GameController Instance;
 
+    [SerializeField] private GameObject itemPrefab;
     [SerializeField] private int spawnDelay = 3;
     [SerializeField] private int spawnRate = 1;
     [SerializeField] private Transform lane1;
@@ -33,6 +34,8 @@ public class GameController : MonoBehaviour
     public void SpawnItem() {
         laneIndex = (laneIndex + 1) % 2;
         Transform lane = laneIndex == 0 ? lane1 : lane2;
-        Instantiate(itemPool.GetRandomItem(difficulty), lane);
+        GameObject item = Instantiate(itemPrefab, lane);
+        item.GetComponent<Item>().SetIngredient(itemPool.GetRandomItem(difficulty));
+
     }
 }

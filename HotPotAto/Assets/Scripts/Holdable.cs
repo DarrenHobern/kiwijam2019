@@ -19,10 +19,14 @@ public class Holdable : MonoBehaviour
         if (this.held) {
             return;
         }
-        foreach(Collider c in this.colliders) {
-            c.enabled = false;
+        if (this.colliders != null) {
+            foreach(Collider c in this.colliders) {
+                c.enabled = false;
+            }
         }
-        this.rb.isKinematic = true;
+        if (this.rb != null) {
+            this.rb.isKinematic = true;
+        }
         this.held = true;
     }
 

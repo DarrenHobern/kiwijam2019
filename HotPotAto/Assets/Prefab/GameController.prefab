@@ -106,6 +106,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0763e78a7525e080a3841bae2958dc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemPrefab: {fileID: 4393865721044262448, guid: 0007c70f1e3f47e2687e2821661d8d46,
+    type: 3}
   spawnDelay: 3
   spawnRate: 1
   lane1: {fileID: 7056541411982747810}
@@ -124,4 +126,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42d412cbc79a07aef9c2225d29e2b868, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  recipes: []
+  recipes:
+  - {fileID: 11400000, guid: af4e90cfb93e458ac8c6fd454046f83c, type: 2}
