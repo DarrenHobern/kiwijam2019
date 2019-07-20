@@ -11,11 +11,14 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Transform holdTransform;
     private Item heldItem = null;
     private Rigidbody rb;
+    private Animator anim;
+    [SerializeField] private GameObject spriteObj;
 
     [SerializeField] private Vector3 throwForce;
    
     private void Awake() {
         rb = GetComponent<Rigidbody>();
+        anim = GetComponentInChildren<Animator>();
         if (this.holdTransform == null) {
             Debug.LogError("HoldTransform not set");
         }
@@ -23,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update() {
         ControlUpdate();
+        AnimationUpdate();
     }
 
     private void ControlUpdate() {
@@ -39,7 +43,6 @@ public class PlayerMovement : MonoBehaviour
         if (throwAction > Mathf.Epsilon) {
             ThrowItem();
         }
-
     }
 
     // Pickup items
@@ -59,7 +62,7 @@ public class PlayerMovement : MonoBehaviour
             // Fail to pickup item
             return;
         }
-
+    
         Debug.Log("Picked up " + item.name);
         heldItem = item;
         item.EnterHeldState();
@@ -72,7 +75,6 @@ public class PlayerMovement : MonoBehaviour
         if (heldItem == null) {
             return;
         }
-
         // Check if held item is the pot
         if (heldItem.CompareTag("Pot")) {
             // Throwing the pot will always land on the other player
@@ -82,6 +84,27 @@ public class PlayerMovement : MonoBehaviour
             heldItem.ExitHeldState();
             heldItem.transform.parent = null;
             heldItem.Rb.AddForce(throwForce, ForceMode.Impulse);
+        }
+    }
+
+    private void AnimationUpdate() {
+        if (heldItem != null) {
+            if (heldItem.CompareTag("Pot")) {
+                anim.SetBool("HoldingPot", true);
+            }
+            anim.SetBool("HoldingItem", true);
+        } else {
+            anim.SetBool("HoldingItem", false);
+        }
+        if (rb.velocity.magnitude > 0.1f) {
+            anim.SetFloat("velocity", 1);
+            if (rb.velocity.x > 0.1f) {
+            spriteObj.transform.localScale = new Vector3 (1, 1, 1);
+            } else if (rb.velocity.x < -0.1f) {
+            spriteObj.transform.localScale = new Vector3 (-1, 1, 1);
+            }
+        } else {
+            anim.SetFloat("velocity", 0);
         }
     }
 
