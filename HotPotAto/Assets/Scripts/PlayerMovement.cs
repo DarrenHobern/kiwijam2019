@@ -31,9 +31,9 @@ public class PlayerMovement : MonoBehaviour
         float pickup = Input.GetAxis(controls.PickupAction);
 
         if (other.CompareTag("Ingredient")) {
-            if (Mathf.Approximately(pickup, 0.0f)) {
+            if (pickup > 0) {
                 // TODO pickup item
-                System.Console.WriteLine("Picked up " + other.name);
+                Debug.Log("Picked up " + other.name);
             }
         }
     }
