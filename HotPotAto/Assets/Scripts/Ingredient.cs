@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
-public class Item : MonoBehaviour
+public class Ingredient : MonoBehaviour
 {
     private bool held = false;
 
