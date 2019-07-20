@@ -9,12 +9,13 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float maxSpeed = 2f;
     [SerializeField] private int health = 100;
     [SerializeField] private Transform holdTransform;
+    [SerializeField] private GameObject spriteObj;
+    [SerializeField] private Vector3 throwForce;
+
     private Item heldItem = null;
+    private Crockpot crockpot = null;
     private Rigidbody rb;
     private Animator anim;
-    [SerializeField] private GameObject spriteObj;
-
-    [SerializeField] private Vector3 throwForce;
    
     private void Awake() {
         rb = GetComponent<Rigidbody>();
@@ -65,26 +66,44 @@ public class PlayerMovement : MonoBehaviour
     
         Debug.Log("Picked up " + item.name);
         heldItem = item;
-        item.EnterHeldState();
+        item.Hold();
         heldItem.transform.localPosition = holdTransform.localPosition;
         heldItem.transform.SetParent(holdTransform, false);
 
     }
 
     private void ThrowItem() {
-        if (heldItem == null) {
+        if (heldItem == null && crockpot == null) {
             return;
         }
         // Check if held item is the pot
-        if (heldItem.CompareTag("Pot")) {
+        if (crockpot != null) {
             // Throwing the pot will always land on the other player
+            // TODO throw pot
         } else {
             // Throw the ingredient in front of you
             Debug.Log("throw item");
-            heldItem.ExitHeldState();
+            heldItem.Drop();
             heldItem.transform.parent = null;
             heldItem.Rb.AddForce(throwForce, ForceMode.Impulse);
         }
+    }
+
+    // Catch items
+    private void OnTriggerEnter(Collider other) {
+        // TODO catching pot logic
+        if (other.CompareTag("Crockpot")) {
+            other.GetComponent<Crockpot>();
+        } else if (other.CompareTag("Ingredient")) {
+            // if the item you're catching is an ingredient and you're holding a pot then add the item to the pot
+            if (crockpot) {
+                // Check the item is in the recipe
+            }
+        }
+    }
+
+    private void CatchItem(Item item) {
+
     }
 
     private void AnimationUpdate() {
