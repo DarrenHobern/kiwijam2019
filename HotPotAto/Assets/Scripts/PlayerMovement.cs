@@ -80,7 +80,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void ThrowItem() {
         if (heldItem == null && crockpot == null) {
-            return;Item
+            return;
         }
         // Check if held item is the pot
         if (crockpot != null) {
