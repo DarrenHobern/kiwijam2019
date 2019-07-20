@@ -9,9 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef09791ae317f62af8e2b96341a7f0d6, type: 3}
-  m_Name: ItemPool
+  m_Script: {fileID: 11500000, guid: 5bf7a2d41ce1e9eedaa1b19d48a73623, type: 3}
+  m_Name: CakeR
   m_EditorClassIdentifier: 
-  pool:
-  - {fileID: 3632655998584839340, guid: 0007c70f1e3f47e2687e2821661d8d46, type: 3}
-  - {fileID: 3632655998584839340, guid: c6ce0c61463f43785b348b89154341fb, type: 3}
+  ingredients: []
+  resultItem: {fileID: 11400000, guid: e9549ea3a18f99a7c870868219a3f106, type: 2}
