@@ -32,6 +32,10 @@ public class PlayerMovement : MonoBehaviour
             transform.Translate(horizontal * moveSpeed, 0.0f, vertical * moveSpeed);
         }
 
+        if (throwAction > Mathf.Epsilon) {
+            ThrowItem();
+        }
+
     }
 
     // Pickup items
@@ -70,6 +74,7 @@ public class PlayerMovement : MonoBehaviour
             // Throwing the pot will always land on the other player
         } else {
             // Throw the ingredient in front of you
+            Debug.Log("throw item");
             heldItem.ExitHeldState();
             heldItem.transform.parent = null;
             heldItem.Rb.AddForce(throwForce, ForceMode.Impulse);
