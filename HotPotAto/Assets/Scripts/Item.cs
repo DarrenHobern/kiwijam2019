@@ -24,7 +24,7 @@ public class Item : MonoBehaviour
         foreach(Collider c in cols) {
             c.enabled = false;
         }
-        rb.useGravity = false;
+        rb.isKinematic = true;
     }
 
     public void ExitHeldState() {
@@ -35,6 +35,6 @@ public class Item : MonoBehaviour
         foreach(Collider c in cols) {
             c.enabled = true;
         }
-        rb.useGravity = true;
+        rb.isKinematic = false;
     }
 }

@@ -6,19 +6,21 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private Controls controls;
     [SerializeField] private float moveSpeed = 2f;
+    [SerializeField] private float maxSpeed = 2f;
     [SerializeField] private int health = 100;
     [SerializeField] private Transform holdTransform;
     private Item heldItem = null;
+    private Rigidbody rb;
 
     [SerializeField] private Vector3 throwForce;
    
     private void Awake() {
+        rb = GetComponent<Rigidbody>();
         if (this.holdTransform == null) {
             Debug.LogError("HoldTransform not set");
         }
     }
 
-    // Update is called once per frame
     private void Update() {
         ControlUpdate();
     }
@@ -29,8 +31,10 @@ public class PlayerMovement : MonoBehaviour
         float throwAction = Input.GetAxis(controls.ThrowAction);
 
         if (!Mathf.Approximately(horizontal, 0.0f) || !Mathf.Approximately(vertical, 0.0f)) {
-            transform.Translate(horizontal * moveSpeed, 0.0f, vertical * moveSpeed);
+            rb.AddForce(horizontal * moveSpeed, 0.0f, vertical * moveSpeed, ForceMode.VelocityChange);
+            rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxSpeed);
         }
+        
 
         if (throwAction > Mathf.Epsilon) {
             ThrowItem();
