@@ -5,8 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Controls", menuName = "Controls", order = 1)]
 public class Controls : ScriptableObject
 {
-    [SerializeField] private string horizontal = "horizontal"; // change to h1
-    [SerializeField] private string vertical = "vertical"; //TODO change to v1
+    [SerializeField] private string horizontal = "h1";
+    [SerializeField] private string vertical = "v1";
     [SerializeField] private string throwAction = "t1";
     [SerializeField] private string pickupAction = "p1";
 
