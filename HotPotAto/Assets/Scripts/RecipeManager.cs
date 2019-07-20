@@ -16,4 +16,8 @@ public class RecipeManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    public Recipe GetRandomRecipe() {
+        return recipes[Random.Range(0, recipes.Length)];
+    }
 }

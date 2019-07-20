@@ -11,11 +11,28 @@ public class Item : MonoBehaviour
 
     private Rigidbody rb;
     public Rigidbody Rb { get { return this.rb; }}
+    private SpriteRenderer spriteRenderer;
     private Collider[] cols;
 
     private void Awake() {
         this.rb = GetComponent<Rigidbody>();
         this.cols = GetComponentsInChildren<Collider>();
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        if (ingredient != null) {
+            spriteRenderer.sprite = ingredient.S;
+        }
+    }
+
+    public Ingredient GetIngredient() {
+        return this.ingredient;
+    }
+
+    public void SetIngredient(Ingredient i) {
+        if (i == null) {
+            return;
+        }
+        this.ingredient = i;
+        spriteRenderer.sprite = i.S;
     }
 
     public void EnterHeldState() {
