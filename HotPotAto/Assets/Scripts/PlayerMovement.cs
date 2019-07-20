@@ -4,20 +4,24 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-
     [SerializeField] private Controls controls;
     [SerializeField] private float moveSpeed = 2f;
     [SerializeField] private int health = 100;
-
-    void Awake() {
+    [SerializeField] private Transform holdTransform;
+    private Item heldItem = null;
+    
+    private void Awake() {
+        if (this.holdTransform == null) {
+            Debug.LogError("HoldTransform not set");
+        }
     }
 
     // Update is called once per frame
-    void Update() {
-        controlUpdate();
+    private void Update() {
+        ControlUpdate();
     }
 
-    void controlUpdate() {
+    private void ControlUpdate() {
         float horizontal = Input.GetAxis(controls.Horizontal);
         float vertical = Input.GetAxis(controls.Vertical);
         float throwAction = Input.GetAxis(controls.ThrowAction);
@@ -25,16 +29,33 @@ public class PlayerMovement : MonoBehaviour
         if (!Mathf.Approximately(horizontal, 0.0f) || !Mathf.Approximately(vertical, 0.0f)) {
             transform.Translate(horizontal * moveSpeed, 0.0f, vertical * moveSpeed);
         }
+
     }
 
-    void OnTriggerStay(Collider other) {
+    // Pickup items
+    private void OnTriggerStay(Collider other) {
         float pickup = Input.GetAxis(controls.PickupAction);
-
-        if (other.CompareTag("Ingredient")) {
-            if (pickup > 0) {
-                // TODO pickup item
-                Debug.Log("Picked up " + other.name);
+        Item i = other.gameObject.GetComponent<Item>();
+        if (i != null) {
+            if (pickup > Mathf.Epsilon) {
+                PickupItem(i);
+                
             }
         }
     }
+
+    private void PickupItem(Item item) {
+        if (heldItem != null) {
+            // Fail to pickup item
+            return;
+        }
+
+        Debug.Log("Picked up " + item.name);
+        heldItem = item;
+        item.EnterHeldState();
+        heldItem.transform.position = holdTransform.position;
+        heldItem.transform.parent = holdTransform;
+
+    }
+
 }
