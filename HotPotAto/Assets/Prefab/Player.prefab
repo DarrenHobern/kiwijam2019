@@ -4798,6 +4798,7 @@ GameObject:
   - component: {fileID: 6818504753368769767}
   - component: {fileID: 7785035340097349594}
   - component: {fileID: 88781101648535211}
+  - component: {fileID: 7237349116283362825}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -4869,6 +4870,25 @@ MonoBehaviour:
   holdTransform: {fileID: 2342144744586815897}
   spriteObj: {fileID: 3987829743974687277}
   throwForce: {x: -3, y: 3, z: 0}
+--- !u!95 &7237349116283362825
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1778984571962266910}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4ac6fe6a397134847b7fefcd07f1be5c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3987829743974687277
 GameObject:
   m_ObjectHideFlags: 0
@@ -4879,7 +4899,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3987829743974687283}
   - component: {fileID: 3987829743974687276}
-  - component: {fileID: 2942931623574003351}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -4952,25 +4971,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &2942931623574003351
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3987829743974687277}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 4ac6fe6a397134847b7fefcd07f1be5c, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7602319483811903517
 GameObject:
   m_ObjectHideFlags: 0
@@ -5044,7 +5044,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2.56, y: 2.56}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0

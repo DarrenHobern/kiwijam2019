@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     private Crockpot crockpot = null;
     private Rigidbody rb;
     private Animator anim;
+    private bool throwing = false;
    
     private void Awake() {
         rb = GetComponent<Rigidbody>();
@@ -26,7 +27,9 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void Update() {
-        ControlUpdate();
+        if(!throwing) {
+            ControlUpdate();
+        }
         AnimationUpdate();
     }
 
@@ -42,7 +45,11 @@ public class PlayerMovement : MonoBehaviour
         
 
         if (throwAction > Mathf.Epsilon) {
-            ThrowItem();
+            //ThrowItem();
+            if (heldItem != null) {
+                anim.Play("ThrowItem", 0);
+                throwing = true;
+            }
         }
     }
 
@@ -69,12 +76,11 @@ public class PlayerMovement : MonoBehaviour
         item.Hold();
         heldItem.transform.localPosition = holdTransform.localPosition;
         heldItem.transform.SetParent(holdTransform, false);
-
     }
 
     private void ThrowItem() {
         if (heldItem == null && crockpot == null) {
-            return;
+            return;Item
         }
         // Check if held item is the pot
         if (crockpot != null) {
@@ -85,7 +91,14 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("throw item");
             heldItem.Drop();
             heldItem.transform.parent = null;
-            heldItem.Rb.AddForce(throwForce, ForceMode.Impulse);
+            heldItem.Rb.AddForce(
+                throwForce.x * spriteObj.transform.localScale.x,
+                throwForce.y,
+                throwForce.z,
+                ForceMode.Impulse
+            );
+            heldItem = null;
+            throwing = false;
         }
     }
 
