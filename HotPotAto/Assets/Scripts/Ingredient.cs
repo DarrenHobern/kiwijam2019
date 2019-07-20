@@ -4,5 +4,5 @@
 public class Ingredient : ScriptableObject
 {
     [SerializeField] private Sprite s;
-    public Sprite S {get;}
+    public Sprite S {get {return this.s;}}
 }

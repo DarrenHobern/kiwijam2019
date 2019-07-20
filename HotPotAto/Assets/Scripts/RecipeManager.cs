@@ -7,6 +7,7 @@ public class RecipeManager : MonoBehaviour
     [SerializeField] private Recipe[] recipes;
 
     private Recipe activeRecipe;
+    public Recipe ActiveRecipe { get {return this.activeRecipe;} }
 
     private void Awake() {
         if (Instance == null) {
