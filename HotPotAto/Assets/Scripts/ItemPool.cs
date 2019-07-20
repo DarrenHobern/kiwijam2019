@@ -8,6 +8,6 @@ public class ItemPool : ScriptableObject
     public Item[] Pool { get { return this.pool; }}
 
     public Item GetRandomItem(int difficulty) {
-        return pool[Random.Range(0, pool.Length-1)];
+        return pool[Random.Range(0, pool.Length)];
     }
 }

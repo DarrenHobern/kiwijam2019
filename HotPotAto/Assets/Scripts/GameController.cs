@@ -23,6 +23,7 @@ public class GameController : MonoBehaviour
         }
 
         Debug.Assert(itemPool != null);
+        StartGame();
     }
 
     public void StartGame() {
