@@ -1,12 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class RecipeManager : MonoBehaviour
 {
     public static RecipeManager Instance;
 
     [SerializeField] private Recipe[] recipes;
+
+    private Recipe activeRecipe;
 
     private void Awake() {
         if (Instance == null) {
@@ -17,7 +17,12 @@ public class RecipeManager : MonoBehaviour
         }
     }
 
-    public Recipe GetRandomRecipe() {
-        return recipes[Random.Range(0, recipes.Length)];
+    public void NewRecipe() {
+        this.activeRecipe = recipes[Random.Range(0, recipes.Length)];
+        Debug.Log(this.activeRecipe);
+    }
+
+    public bool CheckItemIsInRecipe(Item item) {
+        return (activeRecipe.IsValidIngredient(item.GetIngredient()));
     }
 }
