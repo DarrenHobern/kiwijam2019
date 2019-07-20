@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class KillZone : MonoBehaviour
 {
-    private void OnCollisionEnter(Collision other) {
-        GameObject.Destroy(other.gameObject);
+    private void OnTriggerEnter(Collider other) {
+        Destroy(other.gameObject);
     }
 }
