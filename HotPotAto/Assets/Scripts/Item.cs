@@ -5,6 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class Item : MonoBehaviour
 {
+    [SerializeField] private Ingredient ingredient;
+
     private bool held = false;
 
     private Rigidbody rb;
