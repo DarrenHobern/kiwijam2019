@@ -11,7 +11,7 @@ public class GameController : MonoBehaviour
     [SerializeField] private PlayerMovement player1;
     [SerializeField] private PlayerMovement player2;
     [SerializeField] private int spawnDelay = 3;
-    [SerializeField] private int spawnRate = 1;
+    [SerializeField] private float spawnRate = 1;
     [SerializeField] private Transform lane1;
     [SerializeField] private Transform lane2;
     [SerializeField] private ItemPool itemPool;

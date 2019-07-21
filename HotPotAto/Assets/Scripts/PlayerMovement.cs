@@ -31,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update() {
         if (heldItem is Crockpot) {
-            SetHealth(this.health - 10 * Time.deltaTime); // Health depletes at a rate of 10 per second
+            SetHealth(this.health - 5 * Time.deltaTime); // Health depletes at a rate of 10 per second
         }
         if(!throwing) {
             ControlUpdate();
