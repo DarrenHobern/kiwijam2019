@@ -6,12 +6,15 @@ public class Crockpot : Holdable
 {
     private List<Ingredient> ingredients = new List<Ingredient>();
 
-    public void CatchItem(Item item) {
+    public bool CatchItem(Item item) {
         if (RecipeManager.Instance.CheckItemIsInRecipe(item)) {
             Debug.Log("Catching valid item");
             ingredients.Add(item.GetIngredient());
+            RecipeManager.Instance.UpdateIngredients(ingredients.ToArray());
+            return true;
         } else {
             // Do bad thing
+            return false;
         }
     }
 

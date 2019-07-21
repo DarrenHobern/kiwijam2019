@@ -20,7 +20,15 @@ public class RecipeManager : MonoBehaviour
 
     public void NewRecipe() {
         this.activeRecipe = recipes[Random.Range(0, recipes.Length)];
-        Debug.Log(this.activeRecipe);
+        Debug.Log("ACtive recipe: " + this.activeRecipe.name);
+    }
+
+    public void UpdateIngredients(Ingredient[] ingredients) {
+        // TODO update UI here with the ingredients' sprites
+        if (ingredients.Equals(activeRecipe.Ingredients)) {
+            // TODO complete the recipe
+            Debug.Log("RECIPE COMPLETE");
+        }
     }
 
     public bool CheckItemIsInRecipe(Item item) {
