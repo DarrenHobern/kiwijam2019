@@ -366,7 +366,7 @@ PrefabInstance:
     - target: {fileID: 3923354527662843360, guid: 3f5c465fa87f2b98b949287f0ff601e6,
         type: 3}
       propertyPath: recipes.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3923354527662843360, guid: 3f5c465fa87f2b98b949287f0ff601e6,
         type: 3}
