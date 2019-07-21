@@ -56,12 +56,15 @@ public class RecipeManager : MonoBehaviour
     }
 
     private bool CheckRecipeComplete(HashSet<Ingredient> ingredients) {
-        Recipe r = activeRecipe;
-        NewRecipe();
-        if (ingredients.SetEquals(r.Ingredients)) {
-            // Do correct recipe things
-            GameController.Instance.HealPlayers(ingredients.Count);
-            return true;
+        if (ingredients.Count == activeRecipe.Ingredients.Length) {
+            // we done
+            Recipe r = activeRecipe;
+            NewRecipe();
+            if (ingredients.SetEquals(r.Ingredients)) {
+                // Do correct recipe things
+                GameController.Instance.HealPlayers(ingredients.Count);
+            }
+            return true;    
         }
         return false;
     }
