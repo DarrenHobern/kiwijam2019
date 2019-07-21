@@ -48,7 +48,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &3632655998584839340
 MonoBehaviour:
@@ -62,7 +62,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8c1e12d519311d00b2c665fb5eb5715, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ingredient: {fileID: 0}
+  ingredient: {fileID: 11400000, guid: e9549ea3a18f99a7c870868219a3f106, type: 2}
 --- !u!65 &5762938066110030477
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -74,7 +74,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.4656363, y: 1.4656363, z: 1.4656363}
+  m_Size: {x: 2.45, y: 1.4656363, z: 1.4656363}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4646718363358022106
 GameObject:
@@ -86,7 +86,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8676475753889721165}
   - component: {fileID: 5733252506446883190}
-  - component: {fileID: 6973803159173200511}
+  - component: {fileID: 1204006974}
   m_Layer: 9
   m_Name: Sprite
   m_TagString: Untagged
@@ -101,13 +101,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4646718363358022106}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.30070576, y: 0, z: 0, w: 0.953717}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5520264757707746073}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 35, y: 0, z: 0}
 --- !u!212 &5733252506446883190
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -156,8 +156,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!65 &6973803159173200511
-BoxCollider:
+--- !u!135 &1204006974
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -167,5 +167,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.91227305, y: 0.8130957, z: 0.91227305}
-  m_Center: {x: 0, y: -0.04958868, z: 0}
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}

@@ -8,6 +8,8 @@ public class RecipeManager : MonoBehaviour
     [SerializeField] private Recipe[] recipes;
     [SerializeField] private IngredientPanel[] ingredientPanels;
 
+    [SerializeField] private Image currentRecipeImage;
+
     private Recipe activeRecipe;
     public Recipe ActiveRecipe { get {return this.activeRecipe;} }
 
@@ -42,6 +44,8 @@ public class RecipeManager : MonoBehaviour
     }
 
     private void SetUpIngredientPanels() {
+        currentRecipeImage.sprite = activeRecipe.ResultItem.S;
+        currentRecipeImage.enabled = true;
         for (int i = 0; i < ingredientPanels.Length; i++) {
             if(i < activeRecipe.Ingredients.Length) {
                 ingredientPanels[i].SetEnabled();
