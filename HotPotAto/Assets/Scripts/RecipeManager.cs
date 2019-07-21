@@ -8,6 +8,8 @@ public class RecipeManager : MonoBehaviour
 {
     public static RecipeManager Instance;
 
+    [SerializeField] private Animator screenAnimator;
+
     [SerializeField] private Recipe[] recipes;
     [SerializeField] private IngredientPanel[] ingredientPanels;
 
@@ -33,14 +35,19 @@ public class RecipeManager : MonoBehaviour
 
     public bool UpdateIngredients(Ingredient[] ingredients) {
         // Show any new ingredients in the UI
-        for (int i = 0; i < ingredients.Length; i++) {
+        int numberOfIngredients = Mathf.Clamp(ingredients.Length, 0, 6);
+        for (int i = 0; i < numberOfIngredients; i++) {
             ingredientPanels[i].ShowImage(ingredients[i].S);
         }
         return CheckRecipeComplete(new HashSet<Ingredient>(ingredients));
     }
 
-    public bool CheckItemIsInRecipe(Item item) {
-        return (activeRecipe.IsValidIngredient(item.GetIngredient()));
+    public void CheckItemIsInRecipe(Item item) {
+        if (activeRecipe.IsValidIngredient(item.GetIngredient())) {
+            //screenAnimator.Play("CorrectItem", 0);
+        } else {
+            screenAnimator.Play("WrongItem", 0);
+        }
     }
 
     private void SetUpIngredientPanels() {

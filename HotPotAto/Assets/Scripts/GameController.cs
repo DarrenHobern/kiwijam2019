@@ -76,6 +76,6 @@ public class GameController : MonoBehaviour
 
     public void GameOver() {
         Debug.Log("Game over");
-        Application.Quit();
+        MenuScript.Instance.ToEndOver();
     }
 }
