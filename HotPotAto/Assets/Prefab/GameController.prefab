@@ -108,12 +108,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemPrefab: {fileID: 4393865721044262448, guid: 0007c70f1e3f47e2687e2821661d8d46,
     type: 3}
+  player1: {fileID: 0}
+  player2: {fileID: 0}
   spawnDelay: 3
   spawnRate: 1
   lane1: {fileID: 7056541411982747810}
   lane2: {fileID: 8126496627564690119}
   itemPool: {fileID: 11400000, guid: 50bc91648491249868055a9dd39f4109, type: 2}
   difficulty: 0
+  player1HealthBar: {fileID: 0}
+  player2HealthBar: {fileID: 0}
 --- !u!114 &3923354527662843360
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,4 +131,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   recipes:
+  - {fileID: 11400000, guid: c1b5f7deff764d548b117c888dc5a069, type: 2}
+  - {fileID: 11400000, guid: e5bea450ddaec514fbc06480ee8070bb, type: 2}
+  - {fileID: 11400000, guid: f688ba4d2949e5944a94dc3e928f45a3, type: 2}
   - {fileID: 11400000, guid: af4e90cfb93e458ac8c6fd454046f83c, type: 2}
+  - {fileID: 11400000, guid: 94491c9db3b3e594fb0e2dd6bd9e3786, type: 2}
+  - {fileID: 11400000, guid: 76caf1d9d059cf1459995c9368d6ede9, type: 2}
+  - {fileID: 11400000, guid: b48422bd8169ce04fa1466c161e04e7f, type: 2}
+  - {fileID: 11400000, guid: 316c86d6c33e0374a93eb9b588bf4cb4, type: 2}
+  - {fileID: 11400000, guid: 831758a6744b43640ab95fc02eb5df86, type: 2}
+  - {fileID: 11400000, guid: 6bb46053b0857eb488e03d02ae1979b6, type: 2}
+  - {fileID: 11400000, guid: 26c354b235669da449e74225b46d2248, type: 2}
+  ingredientPanels: []
+  currentRecipeImage: {fileID: 0}

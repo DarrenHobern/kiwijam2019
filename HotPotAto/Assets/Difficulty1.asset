@@ -12,4 +12,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef09791ae317f62af8e2b96341a7f0d6, type: 3}
   m_Name: Difficulty1
   m_EditorClassIdentifier: 
-  pool: []
+  pool:
+  - {fileID: 11400000, guid: f7a388ff9bfbb8947a7fec939322cec8, type: 2}
+  - {fileID: 11400000, guid: 975bb556e7d1aba48a88b3fec0856705, type: 2}
+  - {fileID: 11400000, guid: 25a6ac48791811547ae7eef1d712541c, type: 2}
+  - {fileID: 11400000, guid: 0c359efc417496f4f8ccfe83738fa238, type: 2}
+  - {fileID: 11400000, guid: 0d25c5bde7185aa4c9c0a1916ff20cd5, type: 2}
+  - {fileID: 11400000, guid: ce77e1dca14ce41499f15ff16d73d312, type: 2}
+  - {fileID: 11400000, guid: 96edbf1ab7c756242a86a1b3a465841c, type: 2}
+  - {fileID: 11400000, guid: cdd9435e6e9c72c38aae1157c6c226a2, type: 2}
+  - {fileID: 11400000, guid: 6def7853de154214fba9b94a1e89c8aa, type: 2}
+  - {fileID: 11400000, guid: 5847abcf271056d4781d8dd03ce232a8, type: 2}
+  - {fileID: 11400000, guid: ae898c8e0a613cf4c84c4e74aece8c9f, type: 2}
+  - {fileID: 11400000, guid: 70045a44bf221d8489830af79a8e757f, type: 2}
+  - {fileID: 11400000, guid: 84b9c6f80dff2ba46901b0da7707f6fd, type: 2}
+  - {fileID: 11400000, guid: 62832655332250346b2af7a7684347b1, type: 2}
+  - {fileID: 11400000, guid: c8a2b9c7698ce99469c1d3b26424a332, type: 2}
+  - {fileID: 11400000, guid: 5fd98d4c0e3ebab47b852ded365e8a6d, type: 2}
+  - {fileID: 11400000, guid: 2907846a0901473459f39d536ad29587, type: 2}
+  - {fileID: 11400000, guid: ee7e71644664a8a48b5130a1dd09741b, type: 2}
+  - {fileID: 11400000, guid: 36da57f7b08fd5649b524f66560e03d3, type: 2}
+  - {fileID: 11400000, guid: 459d5c59f27205f409e4ff659a824b5a, type: 2}
+  - {fileID: 11400000, guid: 3881d98cf9dfa68488edff6b580825c7, type: 2}
