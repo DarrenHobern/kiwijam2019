@@ -29,6 +29,7 @@ public class GameController : MonoBehaviour
 
     public void StartGame() {
         InvokeRepeating("SpawnItem", spawnDelay, spawnRate);
+        RecipeManager.Instance.NewRecipe();
     }
 
     public void SpawnItem() {
