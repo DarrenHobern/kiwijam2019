@@ -15,7 +15,7 @@ public class ConveyorBelt : MonoBehaviour
     }
 
     private void OnCollisionStay(Collision other) {
-        Debug.Log("Item On Conveyor");
+        //Debug.Log("Item On Conveyor");
         Item i = other.gameObject.GetComponent<Item>();
         if (i != null) {
             Rigidbody otherRb = other.rigidbody;
