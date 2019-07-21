@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class RecipeManager : MonoBehaviour
@@ -26,15 +29,12 @@ public class RecipeManager : MonoBehaviour
         SetUpIngredientPanels();
     }
 
-    public void UpdateIngredients(Ingredient[] ingredients) {
+    public bool UpdateIngredients(Ingredient[] ingredients) {
         // Show any new ingredients in the UI
         for (int i = 0; i < ingredients.Length; i++) {
             ingredientPanels[i].ShowImage(ingredients[i].S);
         }
-        if (ingredients.Equals(activeRecipe.Ingredients)) {
-            // TODO complete the recipe
-            Debug.Log("RECIPE COMPLETE");
-        }
+        return CheckRecipeComplete(new HashSet<Ingredient>(ingredients));
     }
 
     public bool CheckItemIsInRecipe(Item item) {
@@ -49,6 +49,17 @@ public class RecipeManager : MonoBehaviour
             }
             ingredientPanels[i].SetDisabled();
         }
+    }
+
+    private bool CheckRecipeComplete(HashSet<Ingredient> ingredients) {
+        Recipe r = activeRecipe;
+        NewRecipe();
+        if (ingredients.SetEquals(r.Ingredients)) {
+            // Do correct recipe things
+            GameController.Instance.HealPlayers(ingredients.Count);
+            return true;
+        }
+        return false;
     }
 
 }
