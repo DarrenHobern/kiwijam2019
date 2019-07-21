@@ -8,6 +8,7 @@ public class Crockpot : Holdable
 
     public void CatchItem(Item item) {
         ingredients.Add(item.GetIngredient());
+        RecipeManager.Instance.CheckItemIsInRecipe(item);
         if (RecipeManager.Instance.UpdateIngredients(ingredients.ToArray())) {
             ResetIngredients();
         }

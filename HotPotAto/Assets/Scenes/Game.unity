@@ -408,6 +408,11 @@ PrefabInstance:
       propertyPath: currentRecipeImage
       value: 
       objectReference: {fileID: 353796956}
+    - target: {fileID: 3923354527662843360, guid: 3f5c465fa87f2b98b949287f0ff601e6,
+        type: 3}
+      propertyPath: screenAnimator
+      value: 
+      objectReference: {fileID: 1729042049}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f5c465fa87f2b98b949287f0ff601e6, type: 3}
 --- !u!114 &393436446 stripped
@@ -696,6 +701,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9919b445b689314381c28e6d99416b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &1729042049 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4381752936204506900, guid: ad2405a35b4a45e4c8f27b6a52902523,
+    type: 3}
+  m_PrefabInstance: {fileID: 2672615839777677374}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1937167156 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 88781101648535211, guid: 5ff75731f0c8d63e187b6fb1973ee9a0,
@@ -948,6 +959,16 @@ PrefabInstance:
       propertyPath: image
       value: 
       objectReference: {fileID: 840843775}
+    - target: {fileID: 4702559826834881754, guid: ad2405a35b4a45e4c8f27b6a52902523,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 13.800049
+      objectReference: {fileID: 0}
+    - target: {fileID: 4702559826834881754, guid: ad2405a35b4a45e4c8f27b6a52902523,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -246.50002
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad2405a35b4a45e4c8f27b6a52902523, type: 3}
 --- !u!1001 &5446760873582388447
