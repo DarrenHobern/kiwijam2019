@@ -7,8 +7,17 @@ public class IngredientPanel : MonoBehaviour
 {
 
     [SerializeField] private Image image;
-    public void SetImage(Sprite sprite) {
+    public void ShowImage(Sprite sprite) {
         image.enabled = true;
         image.sprite = sprite;
+    }
+    public void SetEnabled(){
+        this.gameObject.SetActive(true);
+        image.enabled = false;
+    }
+
+    public void SetDisabled(){
+        this.gameObject.SetActive(false);
+        image.enabled = false;
     }
 }
