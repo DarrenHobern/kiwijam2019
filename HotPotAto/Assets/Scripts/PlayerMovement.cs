@@ -80,14 +80,22 @@ public class PlayerMovement : MonoBehaviour
         if (heldItem == null) {
             return;
         }
+        heldItem.Drop();
+
         // Check if held item is the pot
         if (heldItem is Crockpot) {
-            // Throwing the pot will always land on the other player
-            // TODO throw pot
+            // Throw pot
+            Vector3 otherPosition = GameController.Instance.GetOtherPlayer(this).transform.position;
+            heldItem.Rb.AddForce(
+                throwForce.x * spriteObj.transform.localScale.x,
+                throwForce.y,
+                transform.position.z - otherPosition.z,
+                ForceMode.Impulse
+            );
+            
         } else if (heldItem is Item) {
             // Throw the ingredient in front of you
             Debug.Log("throw item");
-            heldItem.Drop();
             heldItem.Rb.AddForce(
                 throwForce.x * spriteObj.transform.localScale.x,
                 throwForce.y,
@@ -134,5 +142,6 @@ public class PlayerMovement : MonoBehaviour
             anim.SetFloat("velocity", 0);
         }
     }
+
 
 }

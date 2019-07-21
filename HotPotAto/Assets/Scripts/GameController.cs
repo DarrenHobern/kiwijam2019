@@ -7,6 +7,8 @@ public class GameController : MonoBehaviour
     public static GameController Instance;
 
     [SerializeField] private GameObject itemPrefab;
+    [SerializeField] private PlayerMovement player1;
+    [SerializeField] private PlayerMovement player2;
     [SerializeField] private int spawnDelay = 3;
     [SerializeField] private int spawnRate = 1;
     [SerializeField] private Transform lane1;
@@ -24,6 +26,8 @@ public class GameController : MonoBehaviour
         }
 
         Debug.Assert(itemPool != null);
+        Debug.Assert(player1 != null);
+        Debug.Assert(player2 != null);
         StartGame();
     }
 
@@ -37,6 +41,12 @@ public class GameController : MonoBehaviour
         Transform lane = laneIndex == 0 ? lane1 : lane2;
         GameObject item = Instantiate(itemPrefab, lane);
         item.GetComponent<Item>().SetIngredient(itemPool.GetRandomItem(difficulty));
+    }
 
+    public PlayerMovement GetOtherPlayer(PlayerMovement me) {
+        if (player1.name.Equals(me.name)) {
+            return player2;
+        }
+        return player1;
     }
 }
