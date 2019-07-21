@@ -19,4 +19,7 @@ public class Crockpot : Holdable
 
     // TODO some logic about if ingr.Length > 0 then broth. if finish then final ingredient
 
+    void OnDestroy() {
+        GameController.Instance.GameOver();
+    }
 }
