@@ -43,7 +43,7 @@ public class GameController : MonoBehaviour
     public void SpawnItem() {
         laneIndex = (laneIndex + 1) % 2;
         Transform lane = laneIndex == 0 ? lane1 : lane2;
-        GameObject item = Instantiate(itemPrefab, lane);
+        GameObject item = Instantiate(itemPrefab, lane.transform.position, lane.transform.rotation, null);
         item.GetComponent<Item>().SetIngredient(itemPool.GetRandomItem(difficulty));
     }
 
