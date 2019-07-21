@@ -21,17 +21,19 @@ public class GameController : MonoBehaviour
     private int laneIndex = 0;
 
     private void Awake() {
-        player1.OnHealthChange += UpdateHealthBars;
-        player2.OnHealthChange += UpdateHealthBars;
         if (Instance == null) {
             Instance = this;
         } else {
             Debug.LogWarning("Only one Game Controller can exist");
             Destroy(gameObject);
         }
+
         Debug.Assert(itemPool != null);
         Debug.Assert(player1 != null);
         Debug.Assert(player2 != null);
+
+        player1.OnHealthChange += UpdateHealthBars;
+        player2.OnHealthChange += UpdateHealthBars;
         StartGame();
     }
 
@@ -55,7 +57,12 @@ public class GameController : MonoBehaviour
     }
 
     private void UpdateHealthBars() {
-        player1HealthBar.fillAmount = player1.Health;
-        player2HealthBar.fillAmount = player2.Health;
+        player1HealthBar.fillAmount = player1.GetHealth();
+        player2HealthBar.fillAmount = player2.GetHealth();
+    }
+
+    public void HealPlayers(int amount) {
+        player1.SetHealth(player1.GetHealth() + amount * 10);
+        player2.SetHealth(player2.GetHealth() + amount * 10);
     }
 }

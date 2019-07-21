@@ -8,7 +8,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float moveSpeed = 2f;
     [SerializeField] private float maxSpeed = 2f;
     [SerializeField] private float health = 100;
-    public float Health { get {return this.health/100;} } //Divide by max health to get 0 - 1 range
     public delegate void HealthChangeDelegate();
     public event HealthChangeDelegate OnHealthChange;
     [SerializeField] private Transform holdTransform;
@@ -32,8 +31,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update() {
         if (heldItem is Crockpot) {
-            health = health - 10 * Time.deltaTime; // Health depletes at a rate of 10 per second
-            OnHealthChange();
+            SetHealth(this.health - 10 * Time.deltaTime); // Health depletes at a rate of 10 per second
         }
         if(!throwing) {
             ControlUpdate();
@@ -59,6 +57,15 @@ public class PlayerMovement : MonoBehaviour
                 throwing = true;
             }
         }
+    }
+
+    public float GetHealth() {
+        return this.health/100;
+    }
+
+    public void SetHealth(float value) {
+        this.health = value;
+        OnHealthChange();
     }
 
     // Pickup items
