@@ -4869,7 +4869,7 @@ MonoBehaviour:
   health: 100
   holdTransform: {fileID: 2342144744586815897}
   spriteObj: {fileID: 3987829743974687277}
-  throwForce: {x: -3, y: 3, z: 0}
+  throwForce: {x: 5, y: 20, z: 1}
 --- !u!95 &7237349116283362825
 Animator:
   serializedVersion: 3
@@ -4960,7 +4960,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 4e91a0d0d3ae236b6a59846f564ee5db, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 01da3664e7b90ff45bd0064162524353, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
