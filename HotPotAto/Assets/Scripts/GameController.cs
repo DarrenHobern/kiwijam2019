@@ -59,10 +59,23 @@ public class GameController : MonoBehaviour
     private void UpdateHealthBars() {
         player1HealthBar.fillAmount = player1.GetHealth();
         player2HealthBar.fillAmount = player2.GetHealth();
+
+        CheckIfGameOver();
     }
 
     public void HealPlayers(int amount) {
         player1.SetHealth(player1.GetHealth() + amount * 10);
         player2.SetHealth(player2.GetHealth() + amount * 10);
+    }
+
+    private void CheckIfGameOver() {
+        if (player1.GetHealth() <= 0 || player2.GetHealth() <= 0) {
+            this.GameOver();
+        }
+    }
+
+    public void GameOver() {
+        Debug.Log("Game over");
+        Application.Quit();
     }
 }
