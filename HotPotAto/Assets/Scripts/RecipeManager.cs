@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class RecipeManager : MonoBehaviour
 {
     public static RecipeManager Instance;
 
     [SerializeField] private Recipe[] recipes;
+    [SerializeField] private IngredientPanel[] ingredientPanels;
 
     private Recipe activeRecipe;
     public Recipe ActiveRecipe { get {return this.activeRecipe;} }
@@ -21,6 +23,7 @@ public class RecipeManager : MonoBehaviour
     public void NewRecipe() {
         this.activeRecipe = recipes[Random.Range(0, recipes.Length)];
         Debug.Log("ACtive recipe: " + this.activeRecipe.name);
+        SetUpIngredientPanels();
     }
 
     public void UpdateIngredients(Ingredient[] ingredients) {
@@ -33,5 +36,11 @@ public class RecipeManager : MonoBehaviour
 
     public bool CheckItemIsInRecipe(Item item) {
         return (activeRecipe.IsValidIngredient(item.GetIngredient()));
+    }
+
+    private void SetUpIngredientPanels() {
+        for (int i = 0; i < activeRecipe.Ingredients.Length; i++) {
+            ingredientPanels[i].SetImage(activeRecipe.Ingredients[i].S);
+        }
     }
 }

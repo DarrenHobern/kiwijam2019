@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bf7a2d41ce1e9eedaa1b19d48a73623, type: 3}
   m_Name: CakeR
   m_EditorClassIdentifier: 
-  ingredients: []
+  ingredients:
+  - {fileID: 11400000, guid: e9549ea3a18f99a7c870868219a3f106, type: 2}
+  - {fileID: 11400000, guid: cdd9435e6e9c72c38aae1157c6c226a2, type: 2}
   resultItem: {fileID: 11400000, guid: e9549ea3a18f99a7c870868219a3f106, type: 2}
