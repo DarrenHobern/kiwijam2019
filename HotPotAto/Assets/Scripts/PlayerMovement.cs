@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private GameObject spriteObj;
     [SerializeField] private Vector3 throwForce;
 
+    private int direction = 1; // -1 = facing left 1 = facing right
 
     private Holdable heldItem = null;
     private Rigidbody rb;
@@ -95,7 +96,7 @@ public class PlayerMovement : MonoBehaviour
             // Throw pot
             Vector3 otherPosition = GameController.Instance.GetOtherPlayer(this).transform.position;
             heldItem.Rb.AddForce(
-                throwForce.x * Mathf.Clamp(spriteObj.transform.rotation.x, -1, 1),
+                throwForce.x * direction,
                 throwForce.y,
                 (otherPosition.z - transform.position.z) * throwForce.z,
                 ForceMode.Impulse
@@ -103,9 +104,8 @@ public class PlayerMovement : MonoBehaviour
             
         } else if (heldItem is Item) {
             // Throw the ingredient in front of you
-            Debug.Log("throw item");
             heldItem.Rb.AddForce(
-                throwForce.x * Mathf.Clamp(spriteObj.transform.rotation.x, -1, 1),
+                throwForce.x * direction,
                 throwForce.y,
                 throwForce.z,
                 ForceMode.Impulse
@@ -144,9 +144,11 @@ public class PlayerMovement : MonoBehaviour
             anim.SetFloat("velocity", 1);
             if (rb.velocity.x > 0.1f) {
                 spriteObj.transform.rotation = Quaternion.Euler(35, 0, 0);
+                direction = 1;
                 // spriteObj.transform.localScale = new Vector3 (1, 1, 1);
             } else if (rb.velocity.x < -0.1f) {
                 spriteObj.transform.rotation = Quaternion.Euler(-35, 180, 0);
+                direction = -1;
                 // spriteObj.transform.localScale = new Vector3 (-1, 1, 1);
             }
         } else {
