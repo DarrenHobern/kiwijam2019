@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5bf7a2d41ce1e9eedaa1b19d48a73623, type: 3}
-  m_Name: CakeR
+  m_Name: sushi
   m_EditorClassIdentifier: 
   ingredients:
-  - {fileID: 11400000, guid: 5847abcf271056d4781d8dd03ce232a8, type: 2}
-  - {fileID: 11400000, guid: cdd9435e6e9c72c38aae1157c6c226a2, type: 2}
-  - {fileID: 11400000, guid: 84b9c6f80dff2ba46901b0da7707f6fd, type: 2}
-  - {fileID: 11400000, guid: 459d5c59f27205f409e4ff659a824b5a, type: 2}
-  resultItem: {fileID: 11400000, guid: e532e68a1daf56a42a331dd79179b8e9, type: 2}
+  - {fileID: 11400000, guid: ee7e71644664a8a48b5130a1dd09741b, type: 2}
+  - {fileID: 11400000, guid: 96edbf1ab7c756242a86a1b3a465841c, type: 2}
+  - {fileID: 11400000, guid: ae898c8e0a613cf4c84c4e74aece8c9f, type: 2}
+  - {fileID: 11400000, guid: 25a6ac48791811547ae7eef1d712541c, type: 2}
+  resultItem: {fileID: 11400000, guid: 15d7d8a393b95c344ade62e707cc87d2, type: 2}

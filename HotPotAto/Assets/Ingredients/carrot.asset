@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef09791ae317f62af8e2b96341a7f0d6, type: 3}
-  m_Name: Difficulty1
+  m_Script: {fileID: 11500000, guid: e7c00bc4d66ccad39bf2dbfcaf6dfc18, type: 3}
+  m_Name: carrot
   m_EditorClassIdentifier: 
-  pool: []
+  s: {fileID: 21300048, guid: 0fab064b4f0b1e6428c35234258ddfad, type: 3}
