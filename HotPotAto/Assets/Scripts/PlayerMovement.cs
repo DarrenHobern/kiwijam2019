@@ -107,7 +107,7 @@ public class PlayerMovement : MonoBehaviour
             heldItem.Rb.AddForce(
                 throwForce.x * direction,
                 throwForce.y,
-                throwForce.z,
+                0,
                 ForceMode.Impulse
             );
         }
@@ -128,6 +128,7 @@ public class PlayerMovement : MonoBehaviour
             if (caught != null) {
                 pot.CatchItem(caught);
             }
+            Destroy(other.gameObject);
         }
     }
 

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f3e2d1953aee976f6a4bdc7321e9df26, type: 3}
-  m_Name: Player2Controls 1
+  m_Name: Player2Controls
   m_EditorClassIdentifier: 
   horizontal: h2
   vertical: v2
