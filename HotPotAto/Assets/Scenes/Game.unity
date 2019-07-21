@@ -959,6 +959,12 @@ PrefabInstance:
       propertyPath: image
       value: 
       objectReference: {fileID: 840843775}
+    - target: {fileID: 823006828916975260, guid: ad2405a35b4a45e4c8f27b6a52902523,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 10338a6d85911aa4281297f355810317,
+        type: 3}
     - target: {fileID: 4702559826834881754, guid: ad2405a35b4a45e4c8f27b6a52902523,
         type: 3}
       propertyPath: m_AnchoredPosition.x

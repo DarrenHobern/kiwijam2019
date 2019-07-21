@@ -44,9 +44,11 @@ public class RecipeManager : MonoBehaviour
 
     public void CheckItemIsInRecipe(Item item) {
         if (activeRecipe.IsValidIngredient(item.GetIngredient())) {
-            //screenAnimator.Play("CorrectItem", 0);
+            screenAnimator.StopPlayback();
+            screenAnimator.Play("CorrectItem", 0, 0f);
         } else {
-            screenAnimator.Play("WrongItem", 0);
+            screenAnimator.StopPlayback();
+            screenAnimator.Play("WrongItem", 0, 0f);
         }
     }
 
