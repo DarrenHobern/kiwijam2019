@@ -8,7 +8,7 @@ public class Item : Holdable
 
     private SpriteRenderer spriteRenderer;
 
-    private void Awake() {
+    private void Start() {
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         if (ingredient != null) {
             spriteRenderer.sprite = ingredient.S;

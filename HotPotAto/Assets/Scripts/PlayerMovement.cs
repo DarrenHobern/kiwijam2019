@@ -72,7 +72,7 @@ public class PlayerMovement : MonoBehaviour
         Debug.Log("Picked up " + item.name);
         heldItem = item;
         item.Hold();
-        heldItem.transform.localPosition = holdTransform.localPosition;
+        heldItem.transform.SetPositionAndRotation(holdTransform.localPosition, holdTransform.localRotation);
         heldItem.transform.SetParent(holdTransform, false);
     }
 
@@ -87,9 +87,9 @@ public class PlayerMovement : MonoBehaviour
             // Throw pot
             Vector3 otherPosition = GameController.Instance.GetOtherPlayer(this).transform.position;
             heldItem.Rb.AddForce(
-                throwForce.x * spriteObj.transform.localScale.x,
+                throwForce.x * Mathf.Clamp(spriteObj.transform.localRotation.y, -1, 1),
                 throwForce.y,
-                transform.position.z - otherPosition.z,
+                (otherPosition.z - transform.position.z) * throwForce.z,
                 ForceMode.Impulse
             );
             
@@ -97,14 +97,15 @@ public class PlayerMovement : MonoBehaviour
             // Throw the ingredient in front of you
             Debug.Log("throw item");
             heldItem.Rb.AddForce(
-                throwForce.x * spriteObj.transform.localScale.x,
+                throwForce.x * Mathf.Clamp(spriteObj.transform.localRotation.y, -1, 1),
                 throwForce.y,
                 throwForce.z,
                 ForceMode.Impulse
             );
-            heldItem = null;
-            throwing = false;
         }
+        heldItem = null;
+        throwing = false;
+        // TODO return to idle
     }
 
     // Catch items
@@ -134,9 +135,11 @@ public class PlayerMovement : MonoBehaviour
         if (rb.velocity.magnitude > 0.1f) {
             anim.SetFloat("velocity", 1);
             if (rb.velocity.x > 0.1f) {
-            spriteObj.transform.localScale = new Vector3 (1, 1, 1);
+                spriteObj.transform.rotation = Quaternion.Euler(35, 0, 0);
+                // spriteObj.transform.localScale = new Vector3 (1, 1, 1);
             } else if (rb.velocity.x < -0.1f) {
-            spriteObj.transform.localScale = new Vector3 (-1, 1, 1);
+                spriteObj.transform.rotation = Quaternion.Euler(-35, 180, 0);
+                // spriteObj.transform.localScale = new Vector3 (-1, 1, 1);
             }
         } else {
             anim.SetFloat("velocity", 0);

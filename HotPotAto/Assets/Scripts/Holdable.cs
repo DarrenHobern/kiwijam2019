@@ -13,6 +13,7 @@ public class Holdable : MonoBehaviour
     private void Awake() {
         this.rb = GetComponent<Rigidbody>();
         this.colliders = GetComponentsInChildren<Collider>();
+        Debug.Assert(rb != null, "set rigidbody on item");
     }
 
     public void Hold() {
@@ -35,10 +36,14 @@ public class Holdable : MonoBehaviour
             return;
         }
         transform.parent = null;
-        foreach(Collider c in this.colliders) {
-            c.enabled = true;
+        if (this.colliders != null) {
+            foreach(Collider c in this.colliders) {
+                c.enabled = true;
+            }
         }
-        this.rb.isKinematic = false;
+        if (this.rb != null) {
+            this.rb.isKinematic = false;
+        }
         this.held = false;
     }
     
