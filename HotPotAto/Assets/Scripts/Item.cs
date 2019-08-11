@@ -23,6 +23,9 @@ public class Item : Holdable
         if (i == null) {
             return;
         }
+        if (spriteRenderer == null) {
+            spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        }
         this.ingredient = i;
         spriteRenderer.sprite = i.S;
     }

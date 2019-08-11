@@ -8,6 +8,7 @@ public class Crockpot : Holdable
 
     public void CatchItem(Item item) {
         ingredients.Add(item.GetIngredient());
+        RecipeManager.Instance.CheckItemIsInRecipe(item);
         if (RecipeManager.Instance.UpdateIngredients(ingredients.ToArray())) {
             ResetIngredients();
         }
@@ -19,4 +20,7 @@ public class Crockpot : Holdable
 
     // TODO some logic about if ingr.Length > 0 then broth. if finish then final ingredient
 
+    void OnDestroy() {
+        GameController.Instance.GameOver();
+    }
 }

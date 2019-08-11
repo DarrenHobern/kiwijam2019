@@ -11,7 +11,7 @@ public class GameController : MonoBehaviour
     [SerializeField] private PlayerMovement player1;
     [SerializeField] private PlayerMovement player2;
     [SerializeField] private int spawnDelay = 3;
-    [SerializeField] private int spawnRate = 1;
+    [SerializeField] private float spawnRate = 1;
     [SerializeField] private Transform lane1;
     [SerializeField] private Transform lane2;
     [SerializeField] private ItemPool itemPool;
@@ -34,6 +34,10 @@ public class GameController : MonoBehaviour
 
         player1.OnHealthChange += UpdateHealthBars;
         player2.OnHealthChange += UpdateHealthBars;
+    }
+
+    private void Start()
+    {
         StartGame();
     }
 
@@ -45,7 +49,7 @@ public class GameController : MonoBehaviour
     public void SpawnItem() {
         laneIndex = (laneIndex + 1) % 2;
         Transform lane = laneIndex == 0 ? lane1 : lane2;
-        GameObject item = Instantiate(itemPrefab, lane.transform.position, lane.transform.rotation, null);
+        GameObject item = Instantiate(itemPrefab, lane.transform.position, itemPrefab.transform.rotation, null);
         item.GetComponent<Item>().SetIngredient(itemPool.GetRandomItem(difficulty));
     }
 
@@ -59,10 +63,23 @@ public class GameController : MonoBehaviour
     private void UpdateHealthBars() {
         player1HealthBar.fillAmount = player1.GetHealth();
         player2HealthBar.fillAmount = player2.GetHealth();
+
+        CheckIfGameOver();
     }
 
     public void HealPlayers(int amount) {
         player1.SetHealth(player1.GetHealth() + amount * 10);
         player2.SetHealth(player2.GetHealth() + amount * 10);
+    }
+
+    private void CheckIfGameOver() {
+        if (player1.GetHealth() <= 0 || player2.GetHealth() <= 0) {
+            this.GameOver();
+        }
+    }
+
+    public void GameOver() {
+        Debug.Log("Game over");
+        MenuScript.Instance.ToEndOver();
     }
 }

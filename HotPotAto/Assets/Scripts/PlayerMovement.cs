@@ -31,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update() {
         if (heldItem is Crockpot) {
-            SetHealth(this.health - 10 * Time.deltaTime); // Health depletes at a rate of 10 per second
+            SetHealth(this.health - 5 * Time.deltaTime); // Health depletes at a rate of 10 per second
         }
         if(!throwing) {
             ControlUpdate();
@@ -84,7 +84,11 @@ public class PlayerMovement : MonoBehaviour
             // Fail to pickup item
             return;
         }
-    
+        if (item is Crockpot) {
+            anim.SetBool("HoldingPot", true);
+        } else {
+            anim.SetBool("HoldingItem", true);
+        }
         Debug.Log("Picked up " + item.name);
         heldItem = item;
         item.Hold();
@@ -96,6 +100,8 @@ public class PlayerMovement : MonoBehaviour
         if (heldItem == null) {
             return;
         }
+        anim.SetBool("HoldingPot", false);
+        anim.SetBool("HoldingItem", false);
         heldItem.Drop();
 
         // Check if held item is the pot
@@ -140,14 +146,6 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void AnimationUpdate() {
-        if (heldItem != null) {
-            if (heldItem is Crockpot) {
-                anim.SetBool("HoldingPot", true);
-            }
-            anim.SetBool("HoldingItem", true);
-        } else {
-            anim.SetBool("HoldingItem", false);
-        }
         if (rb.velocity.magnitude > 0.1f) {
             anim.SetFloat("velocity", 1);
             if (rb.velocity.x > 0.1f) {

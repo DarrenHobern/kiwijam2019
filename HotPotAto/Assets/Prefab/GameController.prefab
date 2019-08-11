@@ -71,6 +71,7 @@ GameObject:
   - component: {fileID: 4543184820422213078}
   - component: {fileID: 1179243363872487224}
   - component: {fileID: 3923354527662843360}
+  - component: {fileID: 8072304407482164321}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -130,6 +131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42d412cbc79a07aef9c2225d29e2b868, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  screenAnimator: {fileID: 0}
   recipes:
   - {fileID: 11400000, guid: c1b5f7deff764d548b117c888dc5a069, type: 2}
   - {fileID: 11400000, guid: e5bea450ddaec514fbc06480ee8070bb, type: 2}
@@ -144,3 +146,15 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 26c354b235669da449e74225b46d2248, type: 2}
   ingredientPanels: []
   currentRecipeImage: {fileID: 0}
+--- !u!114 &8072304407482164321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6685269186945910779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04db8e1f118f6db9f85df3d9b9f0d0f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
