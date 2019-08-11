@@ -34,6 +34,10 @@ public class GameController : MonoBehaviour
 
         player1.OnHealthChange += UpdateHealthBars;
         player2.OnHealthChange += UpdateHealthBars;
+    }
+
+    private void Start()
+    {
         StartGame();
     }
 

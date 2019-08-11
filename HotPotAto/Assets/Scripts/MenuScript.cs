@@ -13,16 +13,30 @@ public class MenuScript : MonoBehaviour
             Debug.LogWarning("Only one Game Controller can exist");
             Destroy(gameObject);
         }
+        Screen.SetResolution(1280, 720, true);
     }
     public void ToStartGame() {
-        SceneManager.LoadScene("StartGame");
+        StartCoroutine(LoadScene("StartGame"));
     }
 
     public void ToEndOver() {
-        SceneManager.LoadScene("Gameover");
+        StartCoroutine(LoadScene("Gameover"));
     }
 
     public void ToGame() {
-        SceneManager.LoadScene("Game");
+        StartCoroutine(LoadScene("Game"));
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
+    private IEnumerator LoadScene(string scene)
+    {
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(scene);
+        while(!asyncLoad.isDone) {
+            yield return null;
+        }
     }
 }
